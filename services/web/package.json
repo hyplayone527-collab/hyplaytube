@@ -1,0 +1,17 @@
+{
+  "name": "hyplay-web",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9",
+    "tailwindcss": "^3.3.4",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.15"
+  }
+}
