@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: hyuser
+      POSTGRES_PASSWORD: hypass
+      POSTGRES_DB: hyplay
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  api:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - ./services/api:/app
+    command: sh -c "cd /app && npm install && npm run dev"
+volumes:
+  db_data:
