@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #202020;
+}
+
+nav a {
+  color: #ddd;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #1db954;
+}
+
+main {
+  text-align: center;
+  padding: 50px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #202020;
+  color: #aaa;
+}
