@@ -26,7 +26,7 @@ const Achievements = () => {
   const fetchAchievements = async () => {
     try {
       setLoading(true)
-      const response = await axios.get('http://localhost:5000/api/achievements')
+      const response = await axios.get('http://localhost:5001/api/achievements')
       setAchievements(response.data.achievements)
       setAvailableAchievements(response.data.availableAchievements)
       setTotalPoints(response.data.totalPoints)
@@ -39,7 +39,7 @@ const Achievements = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/achievements/leaderboard')
+      const response = await axios.get('http://localhost:5001/api/achievements/leaderboard')
       setLeaderboard(response.data)
     } catch (error) {
       console.error('Error al obtener leaderboard:', error)
@@ -48,7 +48,7 @@ const Achievements = () => {
 
   const checkAchievements = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/achievements/check')
+      const response = await axios.post('http://localhost:5001/api/achievements/check')
       
       if (response.data.newAchievements.length > 0) {
         // Mostrar notificación de nuevos logros

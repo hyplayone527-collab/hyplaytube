@@ -16,7 +16,7 @@ const PostCard = ({ post, onUpdate, onDelete }) => {
 
   const handleLike = async () => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/posts/${post._id}/like`)
+      const response = await axios.post(`http://localhost:5001/api/posts/${post._id}/like`)
       onUpdate(response.data)
     } catch (error) {
       console.error('Error al dar like:', error)
@@ -30,7 +30,7 @@ const PostCard = ({ post, onUpdate, onDelete }) => {
 
     setLoading(true)
     try {
-      const response = await axios.post(`http://localhost:5000/api/posts/${post._id}/comment`, {
+      const response = await axios.post(`http://localhost:5001/api/posts/${post._id}/comment`, {
         content: newComment.trim()
       })
       onUpdate(response.data)
@@ -45,7 +45,7 @@ const PostCard = ({ post, onUpdate, onDelete }) => {
   const handleDelete = async () => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este post?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/posts/${post._id}`)
+        await axios.delete(`http://localhost:5001/api/posts/${post._id}`)
         onDelete(post._id)
       } catch (error) {
         console.error('Error al eliminar post:', error)

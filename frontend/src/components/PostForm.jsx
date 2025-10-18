@@ -22,7 +22,7 @@ const PostForm = ({ onPostCreated }) => {
     setError('')
 
     try {
-      const response = await axios.post('http://localhost:5000/api/posts', {
+      const response = await axios.post('http://localhost:5001/api/posts', {
         content: content.trim(),
         image
       })

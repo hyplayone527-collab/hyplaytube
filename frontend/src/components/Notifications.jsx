@@ -22,7 +22,7 @@ const Notifications = () => {
 
     const fetchUnreadCount = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/notifications/unread-count')
+            const response = await axios.get('http://localhost:5001/api/notifications/unread-count')
             setUnreadCount(response.data.unreadCount)
         } catch (error) {
             console.error('Error al obtener contador de notificaciones:', error)
@@ -32,7 +32,7 @@ const Notifications = () => {
     const fetchNotifications = async () => {
         try {
             setLoading(true)
-            const response = await axios.get('http://localhost:5000/api/notifications')
+            const response = await axios.get('http://localhost:5001/api/notifications')
             setNotifications(response.data)
         } catch (error) {
             console.error('Error al obtener notificaciones:', error)
@@ -43,7 +43,7 @@ const Notifications = () => {
 
     const markAsRead = async (notificationId) => {
         try {
-            await axios.put(`http://localhost:5000/api/notifications/${notificationId}/read`)
+            await axios.put(`http://localhost:5001/api/notifications/${notificationId}/read`)
             setNotifications(prev =>
                 prev.map(notif =>
                     notif._id === notificationId ? { ...notif, read: true } : notif
@@ -57,7 +57,7 @@ const Notifications = () => {
 
     const markAllAsRead = async () => {
         try {
-            await axios.put('http://localhost:5000/api/notifications/mark-all-read')
+            await axios.put('http://localhost:5001/api/notifications/mark-all-read')
             setNotifications(prev => prev.map(notif => ({ ...notif, read: true })))
             setUnreadCount(0)
         } catch (error) {

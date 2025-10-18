@@ -16,7 +16,10 @@ const initialDB = {
   notifications: [],
   achievements: [],
   analytics: [],
-  settings: []
+  settings: [],
+  videos: [],
+  channels: [],
+  playlists: []
 };
 
 // Crear archivo de base de datos si no existe

@@ -23,7 +23,7 @@ const Profile = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/profile/${username}`)
+      const response = await axios.get(`http://localhost:5001/api/users/profile/${username}`)
       setUser(response.data)
       setIsFollowing(response.data.followers.some(follower => follower._id === currentUser._id))
     } catch (error) {
@@ -33,7 +33,7 @@ const Profile = () => {
 
   const fetchUserPosts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/posts/user/${username}`)
+      const response = await axios.get(`http://localhost:5001/api/posts/user/${username}`)
       setPosts(response.data)
       setLoading(false)
     } catch (error) {
@@ -46,14 +46,14 @@ const Profile = () => {
     setFollowLoading(true)
     try {
       if (isFollowing) {
-        await axios.post(`http://localhost:5000/api/users/unfollow/${user._id}`)
+        await axios.post(`http://localhost:5001/api/users/unfollow/${user._id}`)
         setIsFollowing(false)
         setUser(prev => ({
           ...prev,
           followers: prev.followers.filter(f => f._id !== currentUser._id)
         }))
       } else {
-        await axios.post(`http://localhost:5000/api/users/follow/${user._id}`)
+        await axios.post(`http://localhost:5001/api/users/follow/${user._id}`)
         setIsFollowing(true)
         setUser(prev => ({
           ...prev,

@@ -20,7 +20,7 @@ const Home = () => {
 
   const fetchFeed = async (pageNum = 1) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/posts/feed?page=${pageNum}&limit=10`)
+      const response = await axios.get(`http://localhost:5001/api/posts/feed?page=${pageNum}&limit=10`)
       
       if (pageNum === 1) {
         setPosts(response.data)

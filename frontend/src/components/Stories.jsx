@@ -19,7 +19,7 @@ const Stories = () => {
 
   const fetchStories = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/stories')
+      const response = await axios.get('http://localhost:5001/api/stories')
       setStories(response.data)
     } catch (error) {
       console.error('Error al cargar historias:', error)
@@ -28,7 +28,7 @@ const Stories = () => {
 
   const createStory = async (storyData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/stories', storyData)
+      const response = await axios.post('http://localhost:5001/api/stories', storyData)
       setStories(prev => [response.data, ...prev])
       setShowCreateStory(false)
     } catch (error) {
@@ -42,7 +42,7 @@ const Stories = () => {
     
     // Marcar como vista
     try {
-      await axios.post(`http://localhost:5000/api/stories/${storyGroup.stories[index]._id}/view`)
+      await axios.post(`http://localhost:5001/api/stories/${storyGroup.stories[index]._id}/view`)
     } catch (error) {
       console.error('Error al marcar historia como vista:', error)
     }

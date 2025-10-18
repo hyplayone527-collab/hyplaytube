@@ -19,14 +19,12 @@ export const registerUser = async (req, res) => {
     }
 
     // Crear nuevo usuario
-    const user = new User({
+    const user = await User.create({
       username,
       email,
       password,
       fullName
     });
-
-    await user.save();
 
     // Generar token
     const token = jwt.sign(
@@ -163,11 +161,13 @@ export const followUser = async (req, res) => {
       return res.status(400).json({ message: "Ya sigues a este usuario" });
     }
 
-    currentUser.following.push(req.params.userId);
-    userToFollow.followers.push(req.user._id);
+    // Actualizar following del usuario actual
+    const updatedFollowing = [...currentUser.following, req.params.userId];
+    await User.findByIdAndUpdate(req.user._id, { following: updatedFollowing });
 
-    await currentUser.save();
-    await userToFollow.save();
+    // Actualizar followers del usuario a seguir
+    const updatedFollowers = [...userToFollow.followers, req.user._id];
+    await User.findByIdAndUpdate(req.params.userId, { followers: updatedFollowers });
 
     res.json({ message: "Usuario seguido exitosamente" });
   } catch (error) {
@@ -185,15 +185,17 @@ export const unfollowUser = async (req, res) => {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    currentUser.following = currentUser.following.filter(
-      id => id.toString() !== req.params.userId
+    // Actualizar following del usuario actual
+    const updatedFollowing = currentUser.following.filter(
+      id => id !== req.params.userId
     );
-    userToUnfollow.followers = userToUnfollow.followers.filter(
-      id => id.toString() !== req.user._id.toString()
-    );
+    await User.findByIdAndUpdate(req.user._id, { following: updatedFollowing });
 
-    await currentUser.save();
-    await userToUnfollow.save();
+    // Actualizar followers del usuario a dejar de seguir
+    const updatedFollowers = userToUnfollow.followers.filter(
+      id => id !== req.user._id
+    );
+    await User.findByIdAndUpdate(req.params.userId, { followers: updatedFollowers });
 
     res.json({ message: "Dejaste de seguir al usuario" });
   } catch (error) {

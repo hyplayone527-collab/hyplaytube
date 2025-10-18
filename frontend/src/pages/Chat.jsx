@@ -22,7 +22,7 @@ const Chat = () => {
 
   useEffect(() => {
     // Conectar a Socket.IO
-    socketRef.current = io('http://localhost:5000')
+    socketRef.current = io('http://localhost:5001')
     
     fetchChats()
     
@@ -56,7 +56,7 @@ const Chat = () => {
 
   const fetchChats = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/chats')
+      const response = await axios.get('http://localhost:5001/api/chats')
       setChats(response.data)
       setLoading(false)
     } catch (error) {
@@ -67,7 +67,7 @@ const Chat = () => {
 
   const fetchChatMessages = async (chatId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/chats/${chatId}`)
+      const response = await axios.get(`http://localhost:5001/api/chats/${chatId}`)
       setActiveChat(response.data)
       setMessages(response.data.messages || [])
     } catch (error) {
@@ -82,7 +82,7 @@ const Chat = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/search?q=${query}`)
+      const response = await axios.get(`http://localhost:5001/api/users/search?q=${query}`)
       setSearchResults(response.data)
     } catch (error) {
       console.error('Error al buscar usuarios:', error)
@@ -91,7 +91,7 @@ const Chat = () => {
 
   const createChat = async (userId) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/chats', { userId })
+      const response = await axios.post('http://localhost:5001/api/chats', { userId })
       
       // Actualizar lista de chats si es un chat nuevo
       const existingChat = chats.find(chat => chat._id === response.data._id)
@@ -123,7 +123,7 @@ const Chat = () => {
 
     try {
       // Enviar mensaje al servidor
-      await axios.post(`http://localhost:5000/api/chats/${activeChat._id}/messages`, {
+      await axios.post(`http://localhost:5001/api/chats/${activeChat._id}/messages`, {
         content: newMessage.trim()
       })
 

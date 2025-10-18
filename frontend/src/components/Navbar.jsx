@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          <h2>Red Social</h2>
+          <h2>🎬 NovaStream</h2>
         </Link>
 
         <form onSubmit={handleSearch} className="search-form">
