@@ -20,7 +20,7 @@ echo.
 echo ✅ Despliegue completado!
 echo.
 echo 🌐 URLs de tu plataforma NovaStream:
-echo - https://novastreamteam.com (Página principal)
+echo - https://www.novastreamteam.com (Página principal)
 echo - https://app.novastreamteam.com (Aplicación web)
 echo - https://docs.novastreamteam.com (Documentación)
 echo - https://demo.novastreamteam.com (Demo funcional)

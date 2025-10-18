@@ -16,7 +16,7 @@ export const API_CONFIG = {
   
   // URLs de subdominios para la app móvil
   WEB_APP_URL: 'https://app.novastreamteam.com',
-  MAIN_URL: 'https://novastreamteam.com',
+  MAIN_URL: 'https://www.novastreamteam.com',
 };
 
 // Para obtener tu IP local:

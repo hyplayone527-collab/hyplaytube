@@ -38,6 +38,7 @@ echo 2. Crear repositorios separados para cada subdominio
 echo 3. Configurar GitHub Pages para cada repositorio
 echo.
 echo 🌐 Subdominios creados:
+echo - www.novastreamteam.com (Página principal)
 echo - app.novastreamteam.com (Aplicación principal)
 echo - docs.novastreamteam.com (Documentación)
 echo - demo.novastreamteam.com (Demo funcional)

@@ -3,7 +3,7 @@
 ## Estructura de Subdominios
 
 ### Dominio Principal
-- **novastreamteam.com** - Página principal y landing page
+- **www.novastreamteam.com** - Página principal y landing page
 
 ### Subdominios Planificados
 - **app.novastreamteam.com** - Aplicación web completa de NovaStream
@@ -19,12 +19,13 @@ Para configurar los subdominios, necesitas agregar registros CNAME en tu proveed
 
 ```
 Tipo    Nombre    Valor
-CNAME   app       novastreamteam.github.io
+CNAME   www       hyplayone527-collab.github.io
+CNAME   app       hyplayone527-collab.github.io
 CNAME   api       novastream-backend.onrender.com
-CNAME   docs      novastreamteam.github.io
-CNAME   demo      novastreamteam.github.io
-CNAME   admin     novastreamteam.github.io
-CNAME   cdn       novastreamteam.github.io
+CNAME   docs      hyplayone527-collab.github.io
+CNAME   demo      hyplayone527-collab.github.io
+CNAME   admin     hyplayone527-collab.github.io
+CNAME   cdn       hyplayone527-collab.github.io
 ```
 
 ## Repositorios Separados (Recomendado)
@@ -95,7 +96,7 @@ CNAME   cdn       novastreamteam.github.io
 
 ## URLs Finales
 
-- https://novastreamteam.com - Landing page
+- https://www.novastreamteam.com - Landing page
 - https://app.novastreamteam.com - Aplicación principal
 - https://api.novastreamteam.com - Backend API
 - https://docs.novastreamteam.com - Documentación

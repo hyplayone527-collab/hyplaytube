@@ -6,16 +6,13 @@
 
 ```
 Tipo    Nombre    Destino                      TTL
-A       @         185.199.108.153             3600
-A       @         185.199.109.153             3600
-A       @         185.199.110.153             3600
-A       @         185.199.111.153             3600
-CNAME   www       novastreamteam.com          3600
-CNAME   app       novastreamteam.github.io    3600
-CNAME   docs      novastreamteam.github.io    3600
-CNAME   demo      novastreamteam.github.io    3600
-CNAME   admin     novastreamteam.github.io    3600
-CNAME   api       novastream-api.onrender.com 3600
+CNAME   www       hyplayone527-collab.github.io  3600
+CNAME   @         www.novastreamteam.com       3600
+CNAME   app       hyplayone527-collab.github.io  3600
+CNAME   docs      hyplayone527-collab.github.io  3600
+CNAME   demo      hyplayone527-collab.github.io  3600
+CNAME   admin     hyplayone527-collab.github.io  3600
+CNAME   api       novastream-api.onrender.com  3600
 ```
 
 ## Proveedores Populares
@@ -45,7 +42,7 @@ CNAME   api       novastream-api.onrender.com 3600
 ### Comandos para verificar DNS:
 ```bash
 # Verificar dominio principal
-nslookup novastreamteam.com
+nslookup www.novastreamteam.com
 
 # Verificar subdominios
 nslookup app.novastreamteam.com

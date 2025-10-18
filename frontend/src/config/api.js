@@ -13,7 +13,7 @@ export const API_CONFIG = {
   TIMEOUT: 10000,
   
   // URLs de subdominios
-  MAIN_URL: 'https://novastreamteam.com',
+  MAIN_URL: 'https://www.novastreamteam.com',
   APP_URL: 'https://app.novastreamteam.com',
   DOCS_URL: 'https://docs.novastreamteam.com',
   DEMO_URL: 'https://demo.novastreamteam.com',
