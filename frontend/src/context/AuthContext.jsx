@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
-import { API_URL } from '../config/api'
+import { API_CONFIG } from '../config/api'
+
+const API_URL = API_CONFIG.BASE_URL
 
 const AuthContext = createContext()
 

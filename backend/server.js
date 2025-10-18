@@ -47,8 +47,8 @@ app.use('/api/', limiter);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'OK', 
+  res.status(200).json({
+    status: 'OK',
     message: 'NovaStream Backend is running',
     timestamp: new Date().toISOString()
   });
