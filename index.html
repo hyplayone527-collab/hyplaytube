@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
@@ -20,13 +21,13 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .container {
             text-align: center;
             max-width: 800px;
             padding: 2rem;
         }
-        
+
         .logo {
             font-size: 4rem;
             font-weight: bold;
@@ -36,46 +37,46 @@
             background-clip: text;
             margin-bottom: 1rem;
         }
-        
+
         .subtitle {
             font-size: 1.5rem;
             color: #cccccc;
             margin-bottom: 2rem;
         }
-        
+
         .description {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #aaaaaa;
             margin-bottom: 3rem;
         }
-        
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-        
+
         .feature {
             background: rgba(255, 255, 255, 0.05);
             padding: 1.5rem;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .feature h3 {
             color: #4ecdc4;
             margin-bottom: 0.5rem;
         }
-        
+
         .buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             padding: 12px 24px;
             border: none;
@@ -86,41 +87,41 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .btn-primary {
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
         }
-        
+
         .btn-secondary {
             background: transparent;
             color: #4ecdc4;
             border: 2px solid #4ecdc4;
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .tech-stack {
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .tech-stack h3 {
             color: #4ecdc4;
             margin-bottom: 1rem;
         }
-        
+
         .tech-list {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
         }
-        
+
         .tech-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 0.5rem 1rem;
@@ -129,16 +130,17 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1 class="logo">NovaStream</h1>
         <p class="subtitle">Plataforma de Streaming de Nueva Generación</p>
-        
+
         <p class="description">
-            Una plataforma completa de streaming y redes sociales que combina lo mejor de YouTube, Instagram y TikTok. 
+            Una plataforma completa de streaming y redes sociales que combina lo mejor de YouTube, Instagram y TikTok.
             Desarrollada con tecnologías modernas para ofrecer una experiencia única de contenido multimedia.
         </p>
-        
+
         <div class="features">
             <div class="feature">
                 <h3>🎥 Streaming de Video</h3>
@@ -165,7 +167,7 @@
                 <p>Modo oscuro/claro y soporte para múltiples idiomas.</p>
             </div>
         </div>
-        
+
         <div class="buttons">
             <a href="https://github.com/hyplayone527-collab/hyplaytube" class="btn btn-primary" target="_blank">
                 Ver Código en GitHub
@@ -174,7 +176,7 @@
                 Documentación Completa
             </a>
         </div>
-        
+
         <div class="tech-stack">
             <h3>Tecnologías Utilizadas</h3>
             <div class="tech-list">
@@ -189,7 +191,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         // Efecto de partículas en el fondo
         function createParticle() {
@@ -203,7 +205,7 @@
             particle.style.pointerEvents = 'none';
             particle.style.opacity = '0.7';
             document.body.appendChild(particle);
-            
+
             const animation = particle.animate([
                 { transform: 'translateY(0px)', opacity: 0.7 },
                 { transform: 'translateY(-100vh)', opacity: 0 }
@@ -211,11 +213,12 @@
                 duration: Math.random() * 3000 + 2000,
                 easing: 'linear'
             });
-            
+
             animation.onfinish = () => particle.remove();
         }
-        
+
         setInterval(createParticle, 300);
     </script>
 </body>
+
 </html>
