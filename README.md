@@ -7,11 +7,11 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Socket.io](https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101)
 
-**🏆 LA MEJOR RED SOCIAL DEL MUNDO - Funcionalidades de nivel mundial**
+**🏆 NOVASTREAM - Plataforma de Streaming de Nueva Generación**
 
-**Una red social ultra-avanzada con IA, gamificación, tiempo real y más**
+**Una plataforma completa de streaming con interfaz tipo YouTube, tema negro original y funcionalidades avanzadas**
 
-[🚀 Inicio Rápido](#-inicio-rápido) • [📸 Capturas](SCREENSHOTS.md) • [💻 Código](CODIGO-DESTACADO.md) • [🌟 Funcionalidades](#-funcionalidades-avanzadas)
+[🌐 Ver Sitio Web](https://www.novastreamteam.com) • [🚀 Demo Funcional](https://www.novastreamteam.com/demo.html) • [📱 App Completa](https://www.novastreamteam.com/app.html) • [📚 Documentación](https://www.novastreamteam.com/docs.html)
 
 </div>
 
