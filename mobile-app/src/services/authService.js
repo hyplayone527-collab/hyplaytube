@@ -1,12 +1,13 @@
 import axios from 'axios';
+import { API_CONFIG } from '../config/api.js';
 
-const API_URL = 'http://localhost:5001/api';
+const API_URL = API_CONFIG.BASE_URL;
 
 class AuthService {
   constructor() {
     this.api = axios.create({
       baseURL: API_URL,
-      timeout: 10000,
+      timeout: API_CONFIG.TIMEOUT,
       headers: {
         'Content-Type': 'application/json',
       },
