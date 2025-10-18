@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaStream - Documentación del Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #4ecdc4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav {
+            background: #1a1a1a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #4ecdc4;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(78, 205, 196, 0.2);
+        }
+        
+        .content {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #4ecdc4;
+        }
+        
+        .section h2 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .section h3 {
+            color: #ff6b6b;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        .code-block {
+            background: #000;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        
+        .code-block code {
+            color: #4ecdc4;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .file-tree {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 1rem 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        .feature-card h4 {
+            color: #4ecdc4;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">NovaStream</h1>
+            <p>Documentación Completa del Proyecto</p>
+        </div>
+    </header>
+    
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#overview">Resumen</a>
+                <a href="#features">Características</a>
+                <a href="#structure">Estructura</a>
+                <a href="#installation">Instalación</a>
+                <a href="#api">API</a>
+                <a href="#frontend">Frontend</a>
+                <a href="#backend">Backend</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="content">
+        <div class="container">
+            <section id="overview" class="section">
+                <h2>📋 Resumen del Proyecto</h2>
+                <p>NovaStream es una plataforma completa de streaming y redes sociales que combina las mejores características de YouTube, Instagram y TikTok. Desarrollada con tecnologías modernas como React 18, Node.js y Socket.IO.</p>
+                
+                <h3>🎯 Objetivos</h3>
+                <ul>
+                    <li>Crear una experiencia de usuario fluida y moderna</li>
+                    <li>Implementar funcionalidades de streaming en tiempo real</li>
+                    <li>Desarrollar un sistema de gamificación completo</li>
+                    <li>Proporcionar una arquitectura escalable y mantenible</li>
+                </ul>
+            </section>
+            
+            <section id="features" class="section">
+                <h2>✨ Características Principales</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🎥 Sistema de Videos</h4>
+                        <p>Subida, reproducción y gestión de contenido multimedia con sistema de likes, comentarios y compartir.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>📱 Stories Temporales</h4>
+                        <p>Historias que desaparecen en 24 horas, similar a Instagram Stories, con visualización en tiempo real.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>💬 Chat en Tiempo Real</h4>
+                        <p>Sistema de mensajería instantánea usando WebSocket para comunicación fluida entre usuarios.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>🏆 Sistema de Logros</h4>
+                        <p>Gamificación completa con achievements, puntos y sistema de recompensas para engagement.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>🔔 Notificaciones</h4>
+                        <p>Sistema de notificaciones push en tiempo real para mantener a los usuarios conectados.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>👥 Red Social</h4>
+                        <p>Sistema de seguimiento, perfiles de usuario, feed personalizado y interacciones sociales.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="structure" class="section">
+                <h2>📁 Estructura del Proyecto</h2>
+                
+                <div class="file-tree">
+novastream/
+├── backend/                 # Servidor Node.js
+│   ├── controllers/         # Lógica de negocio
+│   ├── models/             # Modelos de datos
+│   ├── routes/             # Rutas de API
+│   ├── middleware/         # Middleware personalizado
+│   ├── database/           # Configuración de BD
+│   └── server.js           # Punto de entrada
+├── frontend/               # Aplicación React
+│   ├── src/
+│   │   ├── components/     # Componentes reutilizables
+│   │   ├── pages/          # Páginas principales
+│   │   ├── context/        # Context API
+│   │   └── App.jsx         # Componente principal
+├── docs/                   # Documentación
+└── README.md              # Información del proyecto
+                </div>
+            </section>
+            
+            <section id="installation" class="section">
+                <h2>🚀 Instalación y Configuración</h2>
+                
+                <h3>Prerrequisitos</h3>
+                <div class="code-block">
+                    <code>
+Node.js >= 16.0.0<br>
+npm >= 8.0.0<br>
+Git
+                    </code>
+                </div>
+                
+                <h3>Pasos de Instalación</h3>
+                
+                <div class="code-block">
+                    <code>
+# 1. Clonar el repositorio<br>
+git clone https://github.com/hyplayone527-collab/hyplaytube.git<br>
+cd hyplaytube<br><br>
+
+# 2. Instalar dependencias del backend<br>
+cd backend<br>
+npm install<br><br>
+
+# 3. Instalar dependencias del frontend<br>
+cd ../frontend<br>
+npm install<br><br>
+
+# 4. Configurar variables de entorno<br>
+cp .env.example .env<br>
+# Editar .env con tus configuraciones<br><br>
+
+# 5. Ejecutar en modo desarrollo<br>
+# Terminal 1 - Backend<br>
+cd backend && npm run dev<br><br>
+
+# Terminal 2 - Frontend<br>
+cd frontend && npm run dev
+                    </code>
+                </div>
+            </section>
+            
+            <section id="api" class="section">
+                <h2>🔌 API Endpoints</h2>
+                
+                <h3>Autenticación</h3>
+                <div class="code-block">
+                    <code>
+POST /api/users/register    # Registro de usuario<br>
+POST /api/users/login       # Inicio de sesión<br>
+GET  /api/users/profile     # Perfil del usuario<br>
+PUT  /api/users/profile     # Actualizar perfil
+                    </code>
+                </div>
+                
+                <h3>Posts y Contenido</h3>
+                <div class="code-block">
+                    <code>
+GET    /api/posts           # Obtener todos los posts<br>
+POST   /api/posts           # Crear nuevo post<br>
+PUT    /api/posts/:id/like  # Dar like a un post<br>
+POST   /api/posts/:id/comment # Comentar en un post
+                    </code>
+                </div>
+                
+                <h3>Stories</h3>
+                <div class="code-block">
+                    <code>
+GET    /api/stories         # Obtener stories activas<br>
+POST   /api/stories         # Crear nueva story<br>
+PUT    /api/stories/:id/view # Marcar story como vista
+                    </code>
+                </div>
+            </section>
+            
+            <section id="frontend" class="section">
+                <h2>🎨 Frontend - React</h2>
+                
+                <h3>Tecnologías Utilizadas</h3>
+                <div>
+                    <span class="tech-badge">React 18</span>
+                    <span class="tech-badge">React Router</span>
+                    <span class="tech-badge">Context API</span>
+                    <span class="tech-badge">Framer Motion</span>
+                    <span class="tech-badge">Socket.IO Client</span>
+                    <span class="tech-badge">Axios</span>
+                </div>
+                
+                <h3>Componentes Principales</h3>
+                <ul>
+                    <li><strong>Navbar:</strong> Navegación principal con búsqueda y notificaciones</li>
+                    <li><strong>PostCard:</strong> Tarjeta de post con likes, comentarios y compartir</li>
+                    <li><strong>Stories:</strong> Visualizador de historias temporales</li>
+                    <li><strong>Chat:</strong> Interfaz de mensajería en tiempo real</li>
+                    <li><strong>Notifications:</strong> Centro de notificaciones</li>
+                </ul>
+            </section>
+            
+            <section id="backend" class="section">
+                <h2>⚙️ Backend - Node.js</h2>
+                
+                <h3>Tecnologías Utilizadas</h3>
+                <div>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Express.js</span>
+                    <span class="tech-badge">Socket.IO</span>
+                    <span class="tech-badge">JWT</span>
+                    <span class="tech-badge">Bcrypt</span>
+                    <span class="tech-badge">JSON Database</span>
+                </div>
+                
+                <h3>Características del Servidor</h3>
+                <ul>
+                    <li><strong>Autenticación JWT:</strong> Sistema seguro de tokens</li>
+                    <li><strong>Rate Limiting:</strong> Protección contra spam y ataques</li>
+                    <li><strong>WebSocket:</strong> Comunicación en tiempo real</li>
+                    <li><strong>Middleware de Seguridad:</strong> CORS, Helmet, validaciones</li>
+                    <li><strong>Base de Datos JSON:</strong> Sistema de almacenamiento simple y eficiente</li>
+                </ul>
+            </section>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="https://github.com/hyplayone527-collab/hyplaytube" class="btn">Ver Código en GitHub</a>
+                <a href="index.html" class="btn">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
