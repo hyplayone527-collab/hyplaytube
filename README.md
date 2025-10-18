@@ -114,14 +114,9 @@
 2. **Ejecuta con Docker Compose**
    ```bash
    docker-compose up -d
-   ```
+   ``
 
-3. **Accede a la aplicación**
-   - Frontend: http://localhost:5173
-   - **Backend API: http://localhost:5000** ⭐
-   - Base de datos: Archivo JSON local (backend/database/data.json)
-
-### Opción 2: Instalación Manual
+### Opción  1: Instalación Manual
 
 1. **Clona el repositorio**
    ```bash
