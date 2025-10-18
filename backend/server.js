@@ -20,9 +20,18 @@ import Story from "./models/Story.js";
 dotenv.config();
 const app = express();
 const server = createServer(app);
+
+// Configuración CORS para producción
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000", 
+  "https://www.novastreamteam.com",
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -32,7 +41,7 @@ const io = new Server(server, {
 app.use(helmet());
 app.use(compression());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
