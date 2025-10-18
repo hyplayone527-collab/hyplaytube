@@ -64,7 +64,7 @@ Una red social moderna y completa construida con Node.js, React y MongoDB. Inclu
 
 3. **Accede a la aplicación**
    - Frontend: http://localhost:5173
-   - Backend API: http://localhost:5000
+   - **Backend API: http://localhost:5000** ⭐
    - Base de datos: Archivo JSON local (backend/database/data.json)
 
 ### Opción 2: Instalación Manual
