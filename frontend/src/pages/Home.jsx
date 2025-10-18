@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { useTheme } from '../context/ThemeContext'
 import PostForm from '../components/PostForm'
 import PostCard from '../components/PostCard'
+import Stories from '../components/Stories'
 import axios from 'axios'
 
 const Home = () => {
   const { user } = useAuth()
+  const { t } = useTheme()
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
@@ -67,8 +70,10 @@ const Home = () => {
       <div className="home-content">
         <div className="welcome-section">
           <h1>¡Hola, {user?.fullName}!</h1>
-          <p>¿Qué está pasando?</p>
+          <p>{t('whatsHappening')}</p>
         </div>
+
+        <Stories />
 
         <PostForm onPostCreated={handleNewPost} />
 

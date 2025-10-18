@@ -1,5 +1,7 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+import Notification from "../models/Notification.js";
+import Achievement from "../models/Achievement.js";
 
 // Crear nuevo post
 export const createPost = async (req, res) => {
@@ -14,6 +16,13 @@ export const createPost = async (req, res) => {
     
     const populatedPosts = await Post.findWithPopulate({ _id: post._id });
     const populatedPost = populatedPosts[0];
+
+    // Verificar logros después de crear post
+    try {
+      await Achievement.checkAndAwardAchievements(req.user._id, {});
+    } catch (achievementError) {
+      console.log('Error checking achievements:', achievementError);
+    }
 
     res.status(201).json(populatedPost);
   } catch (error) {
@@ -80,6 +89,19 @@ export const likePost = async (req, res) => {
 
     await Post.findByIdAndUpdate(req.params.postId, { likes });
 
+    // Crear notificación si es un nuevo like
+    if (!post.likes.includes(req.user._id) && post.author !== req.user._id) {
+      try {
+        await Notification.createLikeNotification(
+          req.params.postId,
+          req.user._id,
+          post.author
+        );
+      } catch (notificationError) {
+        console.log('Error creating notification:', notificationError);
+      }
+    }
+
     const updatedPosts = await Post.findWithPopulate({ _id: req.params.postId });
     const updatedPost = updatedPosts[0];
 
@@ -107,6 +129,19 @@ export const commentPost = async (req, res) => {
 
     const comments = [...post.comments, comment];
     await Post.findByIdAndUpdate(req.params.postId, { comments });
+
+    // Crear notificación de comentario
+    if (post.author !== req.user._id) {
+      try {
+        await Notification.createCommentNotification(
+          req.params.postId,
+          req.user._id,
+          post.author
+        );
+      } catch (notificationError) {
+        console.log('Error creating notification:', notificationError);
+      }
+    }
 
     const updatedPosts = await Post.findWithPopulate({ _id: req.params.postId });
     const updatedPost = updatedPosts[0];

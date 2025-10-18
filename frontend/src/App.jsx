@@ -6,7 +6,9 @@ import Register from './pages/Register'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Chat from './pages/Chat'
+import AchievementsPage from './pages/AchievementsPage'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import { ThemeProvider } from './context/ThemeContext'
 import './App.css'
 
 function AppRoutes() {
@@ -50,6 +52,10 @@ function AppRoutes() {
             path="/chat/:chatId" 
             element={user ? <Chat /> : <Navigate to="/login" />} 
           />
+          <Route 
+            path="/achievements" 
+            element={user ? <AchievementsPage /> : <Navigate to="/login" />} 
+          />
         </Routes>
       </main>
     </div>
@@ -58,9 +64,11 @@ function AppRoutes() {
 
 function App() {
   return (
-    <AuthProvider>
-      <AppRoutes />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 

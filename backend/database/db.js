@@ -11,7 +11,12 @@ const DB_PATH = path.join(__dirname, 'data.json');
 const initialDB = {
   users: [],
   posts: [],
-  chats: []
+  chats: [],
+  stories: [],
+  notifications: [],
+  achievements: [],
+  analytics: [],
+  settings: []
 };
 
 // Crear archivo de base de datos si no existe
@@ -43,7 +48,7 @@ export const writeDB = (data) => {
 
 // Generar ID único
 export const generateId = () => {
-  return Date.now().toString() + Math.random().toString(36).substr(2, 9);
+  return Date.now().toString() + Math.random().toString(36).substring(2, 11);
 };
 
 // Operaciones CRUD genéricas
