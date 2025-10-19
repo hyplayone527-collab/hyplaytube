@@ -13,5 +13,5 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://novastreamteam.com
+        value: https://www.novastreamteam.com
     healthCheckPath: /api/health
