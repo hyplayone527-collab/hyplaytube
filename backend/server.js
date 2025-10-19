@@ -25,7 +25,9 @@ const server = createServer(app);
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000", 
+  "https://novastreamteam.com",
   "https://www.novastreamteam.com",
+  "https://hyplayone527-collab.github.io",
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
