@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico - NovaStream</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0f0f0f;
+            color: #4ecdc4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+        }
+        .test-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .test-result {
+            margin: 10px 0;
+        }
+        .success { color: #4ecdc4; }
+        .error { color: #ff6b6b; }
+        .warning { color: #feca57; }
+        .btn {
+            background: #4ecdc4;
+            color: #0f0f0f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #45b7d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Diagnóstico NovaStream</h1>
+            <p>Verificación del estado de la aplicación</p>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">📁 Archivos del Sitio Web</div>
+            <div id="file-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🌐 Conectividad</div>
+            <div id="connectivity-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">📱 Funcionalidades</div>
+            <div id="functionality-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🔧 Acciones</div>
+            <button class="btn" onclick="runAllTests()">Ejecutar Todas las Pruebas</button>
+            <button class="btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
+            <button class="btn" onclick="window.location.href='demo.html'">Ir al Demo</button>
+        </div>
+    </div>
+
+    <script>
+        async function testFile(url, name) {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                return {
+                    name: name,
+                    status: response.ok ? 'success' : 'error',
+                    message: response.ok ? `✅ ${name} - OK (${response.status})` : `❌ ${name} - Error (${response.status})`
+                };
+            } catch (error) {
+                return {
+                    name: name,
+                    status: 'error',
+                    message: `❌ ${name} - No accesible`
+                };
+            }
+        }
+
+        async function runFileTests() {
+            const fileTests = document.getElementById('file-tests');
+            fileTests.innerHTML = '<div class="warning">🔄 Verificando archivos...</div>';
+
+            const files = [
+                { url: 'index.html', name: 'Página Principal' },
+                { url: 'demo.html', name: 'Demo Funcional' },
+                { url: 'app.html', name: 'Aplicación Web' },
+                { url: 'docs.html', name: 'Documentación' },
+                { url: 'status.html', name: 'Estado del Sistema' }
+            ];
+
+            let results = '';
+            for (const file of files) {
+                const result = await testFile(file.url, file.name);
+                results += `<div class="test-result ${result.status}">${result.message}</div>`;
+            }
+
+            fileTests.innerHTML = results;
+        }
+
+        async function runConnectivityTests() {
+            const connectivityTests = document.getElementById('connectivity-tests');
+            connectivityTests.innerHTML = '<div class="warning">🔄 Verificando conectividad...</div>';
+
+            let results = '';
+
+            // Test GitHub Pages
+            try {
+                const response = await fetch('https://www.novastreamteam.com', { method: 'HEAD', mode: 'no-cors' });
+                results += '<div class="test-result success">✅ Dominio principal - Accesible</div>';
+            } catch (error) {
+                results += '<div class="test-result error">❌ Dominio principal - No accesible</div>';
+            }
+
+            // Test Assets
+            try {
+                const response = await fetch('./assets/index-CTwUH3H0.css', { method: 'HEAD' });
+                results += response.ok ? 
+                    '<div class="test-result success">✅ Assets CSS - OK</div>' :
+                    '<div class="test-result error">❌ Assets CSS - Error</div>';
+            } catch (error) {
+                results += '<div class="test-result error">❌ Assets CSS - No encontrado</div>';
+            }
+
+            try {
+                const response = await fetch('./assets/index-CTUEHBK2.js', { method: 'HEAD' });
+                results += response.ok ? 
+                    '<div class="test-result success">✅ Assets JS - OK</div>' :
+                    '<div class="test-result error">❌ Assets JS - Error</div>';
+            } catch (error) {
+                results += '<div class="test-result error">❌ Assets JS - No encontrado</div>';
+            }
+
+            connectivityTests.innerHTML = results;
+        }
+
+        function runFunctionalityTests() {
+            const functionalityTests = document.getElementById('functionality-tests');
+            let results = '';
+
+            // Test JavaScript
+            try {
+                const testDiv = document.createElement('div');
+                testDiv.innerHTML = 'Test';
+                results += '<div class="test-result success">✅ JavaScript - Funcionando</div>';
+            } catch (error) {
+                results += '<div class="test-result error">❌ JavaScript - Error</div>';
+            }
+
+            // Test CSS
+            const testElement = document.createElement('div');
+            testElement.style.display = 'none';
+            document.body.appendChild(testElement);
+            const computedStyle = window.getComputedStyle(testElement);
+            if (computedStyle.display === 'none') {
+                results += '<div class="test-result success">✅ CSS - Funcionando</div>';
+            } else {
+                results += '<div class="test-result error">❌ CSS - Error</div>';
+            }
+            document.body.removeChild(testElement);
+
+            // Test Local Storage
+            try {
+                localStorage.setItem('test', 'value');
+                localStorage.removeItem('test');
+                results += '<div class="test-result success">✅ Local Storage - Funcionando</div>';
+            } catch (error) {
+                results += '<div class="test-result error">❌ Local Storage - Error</div>';
+            }
+
+            // Test Fetch API
+            if (typeof fetch !== 'undefined') {
+                results += '<div class="test-result success">✅ Fetch API - Disponible</div>';
+            } else {
+                results += '<div class="test-result error">❌ Fetch API - No disponible</div>';
+            }
+
+            functionalityTests.innerHTML = results;
+        }
+
+        async function runAllTests() {
+            await runFileTests();
+            await runConnectivityTests();
+            runFunctionalityTests();
+        }
+
+        // Ejecutar pruebas al cargar la página
+        window.addEventListener('load', runAllTests);
+    </script>
+</body>
+</html>

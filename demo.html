@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -328,20 +329,33 @@
         }
 
         @media (max-width: 768px) {
-            .topbar-center { display: none; }
-            .content-area { margin-left: 0; padding: 16px; }
-            .sidebar { transform: translateX(-100%); }
-            .videos-grid { grid-template-columns: 1fr; }
+            .topbar-center {
+                display: none;
+            }
+
+            .content-area {
+                margin-left: 0;
+                padding: 16px;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="app-layout">
         <header class="topbar">
             <div class="topbar-left">
                 <button class="menu-button">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
                     </svg>
                 </button>
                 <div class="logo">NovaStream</div>
@@ -352,7 +366,8 @@
                     <input type="text" class="search-input" placeholder="Buscar videos, canales...">
                     <button class="search-button">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                         </svg>
                     </button>
                 </div>
@@ -368,19 +383,20 @@
                 <div class="sidebar-section">
                     <a href="#" class="sidebar-item active">
                         <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                         </svg>
                         Inicio
                     </a>
                     <a href="#" class="sidebar-item">
                         <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
                         </svg>
                         Tendencias
                     </a>
                     <a href="#" class="sidebar-item">
                         <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 8H4V6h16v2zm-2-6H6v2h12V2zm4 10v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-8c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2zm-6 4l-6-3.27v6.53L16 16z"/>
+                            <path
+                                d="M20 8H4V6h16v2zm-2-6H6v2h12V2zm4 10v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-8c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2zm-6 4l-6-3.27v6.53L16 16z" />
                         </svg>
                         Suscripciones
                     </a>
@@ -401,7 +417,8 @@
                     <div class="videos-grid">
                         <div class="video-card">
                             <div class="video-thumbnail">
-                                <img src="https://via.placeholder.com/320x180/4ecdc4/ffffff?text=React+Tutorial" alt="Tutorial React">
+                                <img src="https://via.placeholder.com/320x180/4ecdc4/ffffff?text=React+Tutorial"
+                                    alt="Tutorial React">
                                 <span class="video-duration">24:15</span>
                             </div>
                             <div class="video-info">
@@ -418,7 +435,8 @@
 
                         <div class="video-card">
                             <div class="video-thumbnail">
-                                <img src="https://via.placeholder.com/320x180/ff6b6b/ffffff?text=CSS+Tips" alt="CSS Tips">
+                                <img src="https://via.placeholder.com/320x180/ff6b6b/ffffff?text=CSS+Tips"
+                                    alt="CSS Tips">
                                 <span class="video-duration">18:32</span>
                             </div>
                             <div class="video-info">
@@ -435,7 +453,8 @@
 
                         <div class="video-card">
                             <div class="video-thumbnail">
-                                <img src="https://via.placeholder.com/320x180/45b7d1/ffffff?text=JavaScript" alt="JavaScript">
+                                <img src="https://via.placeholder.com/320x180/45b7d1/ffffff?text=JavaScript"
+                                    alt="JavaScript">
                                 <span class="video-duration">15:47</span>
                             </div>
                             <div class="video-info">
@@ -486,7 +505,8 @@
 
                         <div class="video-card">
                             <div class="video-thumbnail">
-                                <img src="https://via.placeholder.com/320x180/ff9ff3/ffffff?text=Database" alt="Database">
+                                <img src="https://via.placeholder.com/320x180/ff9ff3/ffffff?text=Database"
+                                    alt="Database">
                                 <span class="video-duration">28:09</span>
                             </div>
                             <div class="video-info">
@@ -506,4 +526,5 @@
         </div>
     </div>
 </body>
+
 </html>

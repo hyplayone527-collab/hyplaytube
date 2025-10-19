@@ -183,7 +183,7 @@ const Home = () => {
       </div>
 
       <style jsx>{`
-        .home-header {
+      .home-header {
           text-align: center;
           margin-bottom: 40px;
           padding: 40px 0;
