@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Backend - NovaStream</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0f0f0f;
+            color: #4ecdc4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+        }
+        .test-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success { 
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4; 
+            border: 1px solid #4ecdc4;
+        }
+        .error { 
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b; 
+            border: 1px solid #ff6b6b;
+        }
+        .warning { 
+            background: rgba(254, 202, 87, 0.2);
+            color: #feca57; 
+            border: 1px solid #feca57;
+        }
+        .btn {
+            background: #4ecdc4;
+            color: #0f0f0f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #45b7d1;
+        }
+        .url-input {
+            width: 100%;
+            padding: 10px;
+            background: #2d2d2d;
+            border: 1px solid #4ecdc4;
+            color: #fff;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Test de Conexión Backend</h1>
+            <p>Verificar que tu backend en Render está funcionando</p>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🌐 URL del Backend</div>
+            <input type="text" id="backend-url" class="url-input" 
+                   placeholder="https://tu-backend.onrender.com" 
+                   value="https://novastream-backend.onrender.com">
+            <button class="btn" onclick="updateBackendUrl()">Actualizar URL</button>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🔍 Pruebas de Conectividad</div>
+            <div id="connectivity-results"></div>
+            <button class="btn" onclick="testBackend()">Probar Conexión</button>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">📋 Endpoints de API</div>
+            <div id="api-results"></div>
+            <button class="btn" onclick="testApiEndpoints()">Probar API</button>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🔧 Acciones</div>
+            <button class="btn" onclick="window.location.href='app.html'">Ir a la App</button>
+            <button class="btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        let backendUrl = 'https://novastream-backend.onrender.com';
+
+        function updateBackendUrl() {
+            const input = document.getElementById('backend-url');
+            backendUrl = input.value.replace(/\/$/, ''); // Remover slash final
+            addResult('connectivity-results', 'warning', `🔄 URL actualizada: ${backendUrl}`);
+        }
+
+        function addResult(containerId, type, message) {
+            const container = document.getElementById(containerId);
+            const result = document.createElement('div');
+            result.className = `test-result ${type}`;
+            result.innerHTML = message;
+            container.appendChild(result);
+        }
+
+        function clearResults(containerId) {
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        async function testBackend() {
+            clearResults('connectivity-results');
+            addResult('connectivity-results', 'warning', '🔄 Probando conexión...');
+
+            try {
+                // Test básico de conectividad
+                const response = await fetch(`${backendUrl}/api/health`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult('connectivity-results', 'success', 
+                        `✅ Backend conectado correctamente!<br>
+                         📡 Status: ${data.status}<br>
+                         💬 Mensaje: ${data.message}<br>
+                         🕒 Tiempo: ${data.timestamp || 'N/A'}`);
+                } else {
+                    addResult('connectivity-results', 'error', 
+                        `❌ Backend responde pero con error<br>
+                         📊 Status Code: ${response.status}<br>
+                         📝 Status Text: ${response.statusText}`);
+                }
+            } catch (error) {
+                addResult('connectivity-results', 'error', 
+                    `❌ No se puede conectar al backend<br>
+                     🔍 Error: ${error.message}<br>
+                     💡 Verifica que la URL sea correcta y que el backend esté desplegado`);
+            }
+        }
+
+        async function testApiEndpoints() {
+            clearResults('api-results');
+            addResult('api-results', 'warning', '🔄 Probando endpoints de API...');
+
+            const endpoints = [
+                { path: '/api/health', name: 'Health Check' },
+                { path: '/api/users/register', name: 'Register (POST)', method: 'OPTIONS' },
+                { path: '/api/users/login', name: 'Login (POST)', method: 'OPTIONS' },
+                { path: '/api/posts', name: 'Posts (GET)' }
+            ];
+
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(`${backendUrl}${endpoint.path}`, {
+                        method: endpoint.method || 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok || response.status === 200 || response.status === 204) {
+                        addResult('api-results', 'success', 
+                            `✅ ${endpoint.name} - Disponible (${response.status})`);
+                    } else if (response.status === 401 || response.status === 403) {
+                        addResult('api-results', 'warning', 
+                            `⚠️ ${endpoint.name} - Requiere autenticación (${response.status})`);
+                    } else {
+                        addResult('api-results', 'error', 
+                            `❌ ${endpoint.name} - Error (${response.status})`);
+                    }
+                } catch (error) {
+                    addResult('api-results', 'error', 
+                        `❌ ${endpoint.name} - No accesible`);
+                }
+            }
+        }
+
+        // Probar automáticamente al cargar
+        window.addEventListener('load', () => {
+            setTimeout(testBackend, 1000);
+        });
+    </script>
+</body>
+</html>

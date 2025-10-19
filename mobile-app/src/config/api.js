@@ -6,11 +6,11 @@ export const API_CONFIG = {
   // En producción, usa el servidor desplegado
   BASE_URL: isDevelopment 
     ? 'http://192.168.1.100:5001/api'  // Cambia esta IP por la tuya
-    : 'https://dashboard.render.com/web/srv-d3q381bipnbc73a9fsug/deploys/dep-d3q381jipnbc73a9ftc0/api',
+    : 'https://novastream-backend.onrender.com/api',
     
   SOCKET_URL: isDevelopment
     ? 'http://192.168.1.100:5001'      // Cambia esta IP por la tuya
-    : 'https://dashboard.render.com/web/srv-d3q381bipnbc73a9fsug/deploys/dep-d3q381jipnbc73a9ftc0',
+    : 'https://novastream-backend.onrender.com',
     
   TIMEOUT: 10000,
 };
