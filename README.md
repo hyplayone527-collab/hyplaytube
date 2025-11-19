@@ -107,7 +107,7 @@
 
 1. **Clona el repositorio**
    ```bash
-   git clone <tu-repositorio>
+   git clone https://github.com/hyplayone527-collab/hyplaytube
    cd red-social
    ```
 
@@ -120,25 +120,19 @@
 
 1. **Clona el repositorio**
    ```bash
-   git clone <tu-repositorio>
-   cd red-social
+   git clone https://github.com/hyplayone527-collab/hyplaytube
+   cd hyplaytube
    ```
 
-2. **Configura el Backend**
+2. **Configura la ruta hyplaytube**
    ```bash
-   cd backend
+   cd hyplaytube
    npm install
    cp ../.env.example .env
    # Edita .env con tus configuraciones
    npm run dev
    ```
 
-3. **Configura el Frontend**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
 
 ## ⚙️ Variables de Entorno
 
@@ -164,14 +158,10 @@ chmod +x dev.sh
 ### Opción 2: Manual
 ```bash
 # Terminal 1 - Backend
-cd backend
+cd hyplaytube
 npm install
 npm run dev
 
-# Terminal 2 - Frontend  
-cd frontend
-npm install
-npm run dev
 ```
 
 ## 🚀 Uso
